@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mendx — Home Experts at Your Door</title>
+  <meta name="description"
+    content="Expert home services delivered to your doorstep – get reliable handyman solutions with ease. Fast, professional, and tailored to your needs.">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* CSS Variables & Design System Tokens */
+    :root {
+      --bg-canvas: #FFFFFF;
+      --bg-hero: #F4F5F8;
+      --bg-card: #FFFFFF;
+      --primary-purple: #6C5CE7;
+      --primary-purple-hover: #5B4BC4;
+      --primary-purple-light: #F0EDFF;
+      --dark-navy: #0E0C20;
+      --dark-navy-hover: #1E1A3A;
+      --text-main: #111827;
+      --text-muted: #5A6275;
+      --text-light: #94A3B8;
+      --border-subtle: #E2E8F0;
+      --accent-green: #10B981;
+      
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 8px 16px -4px rgba(14, 12, 32, 0.04);
+      --shadow-lg: 0 20px 30px -8px rgba(14, 12, 32, 0.08);
+      --shadow-purple: 0 10px 25px -5px rgba(108, 92, 231, 0.35);
+
+      --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Reset & Global Rules */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    input, select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       HERO WRAPPER & NAVIGATION BAR
+       ========================================================================== */
+    /* ==========================================================================
+       HERO WRAPPER & NAVIGATION BAR
+       ========================================================================== */
+    .hero-container {
+      background-color: var(--bg-hero);
+      padding-bottom: 4.5rem;
+      border-radius: 20px 20px 36px 36px;
+      position: relative;
+      margin: 0.75rem 0.75rem 0;
+    }
+
+    /* Fixed & Floating Navbar Wrapper */
+    .navbar-wrapper {
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .navbar-wrapper.is-scrolled {
+      position: fixed;
+      top: 0.85rem;
+      left: 0;
+      right: 0;
+      animation: navSlideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes navSlideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      padding: 1.25rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 16px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Floating Pill State when Scrolled (Stays fixed down the whole page!) */
+    .navbar-wrapper.is-scrolled .navbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 12px 32px -4px rgba(14, 12, 32, 0.12), 0 0 0 1px rgba(226, 232, 240, 0.8);
+      padding: 0.7rem 1.5rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.65rem;
+      color: #6C5CE7;
+      letter-spacing: -0.025em;
+    }
+
+    .nav-brand-icon {
+      width: 28px;
+      height: 28px;
+      background: #6C5CE7;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+      margin-left: auto;
+      margin-right: 1.5rem;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      font-size: 0.925rem;
+      font-weight: 600;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.5rem 0;
+      transition: var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: var(--primary-purple);
+    }
+
+    .nav-link svg {
+      transition: transform 0.2s ease;
+    }
+
+    .nav-item:hover .nav-link svg {
+      transform: translateY(2px);
+    }
+
+    /* Nav Dropdown Menus */
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 0.75rem;
+      min-width: 220px;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition-fast);
+      z-index: 100;
+    }
+
+    .nav-item:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      transition: var(--transition-fast);
+    }
+
+    .dropdown-item:hover {
+      background: var(--primary-purple-light);
+      color: var(--primary-purple);
+    }
+
+    .btn-join {
+      background-color: #6C5CE7;
+      color: white;
+      font-weight: 600;
+      font-size: 0.925rem;
+      padding: 0.65rem 1.4rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: none;
+      transition: var(--transition-fast);
+    }
+
+    .btn-join:hover {
+      background-color: #5B4BC4;
+      transform: translateY(-1px);
+    }
+
+    .btn-join svg {
+      transition: transform 0.2s ease;
+    }
+
+    .btn-join:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Mobile Hamburger Button */
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--dark-navy);
+    }
+
+    /* ==========================================================================
+       HERO CONTENT & ILLUSTRATIONS
+       ========================================================================== */
+    .hero-body {
+      position: relative;
+      padding: 2.5rem 0 1rem;
+      display: grid;
+      grid-template-columns: 200px 1fr 200px;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    /* Hero Left & Right Illustration Containers */
+    .hero-illus-left, .hero-illus-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-illus-left svg, .hero-illus-right svg {
+      width: 100%;
+      height: auto;
+      max-width: 220px;
+    }
+
+    /* Hero Center Text & Search */
+    .hero-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3.8rem;
+      line-height: 1.12;
+      color: var(--dark-navy);
+      letter-spacing: -0.035em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-title .title-line {
+      display: block;
+    }
+
+    .hero-house-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+      margin: 0 0.15em;
+      transform: translateY(-4px);
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      font-weight: 400;
+    }
+
+    /* Hero Search Bar Widget */
+    .hero-search-bar {
+      background: white;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 0.4rem 0.4rem 0.4rem 1.25rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 6px 20px rgba(14, 12, 32, 0.04);
+      max-width: 650px;
+      margin: 0 auto;
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .hero-search-bar:focus-within {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15), 0 10px 25px rgba(14, 12, 32, 0.06);
+    }
+
+    .search-location-select {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      color: var(--dark-navy);
+      font-size: 0.95rem;
+      padding-right: 1.25rem;
+      border-right: 1.5px solid var(--border-subtle);
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .search-location-select svg {
+      color: var(--dark-navy);
+    }
+
+    .search-input-field {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      background: transparent;
+    }
+
+    .search-input-field::placeholder {
+      color: #94A3B8;
+    }
+
+    .btn-search {
+      background: var(--dark-navy);
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-fast);
+    }
+
+    .btn-search:hover {
+      background: var(--dark-navy-hover);
+      transform: scale(1.02);
+    }
+
+    /* Dropdown Picker for Location */
+    .location-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      width: 220px;
+      display: none;
+      flex-direction: column;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+
+    .location-dropdown.active {
+      display: flex;
+    }
+
+    .location-option {
+      padding: 0.6rem 0.8rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-main);
+      text-align: left;
+      transition: var(--transition-fast);
+    }
+
+    .location-option:hover {
+      background: var(--bg-hero);
+      color: var(--primary-purple);
+    }
+
+    /* Live Search Suggestions Drawer */
+    .search-suggestions {
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 0.75rem;
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      z-index: 90;
+      text-align: left;
+    }
+
+    .search-suggestions.active {
+      display: flex;
+    }
+
+    .suggestion-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .suggestion-item:hover {
+      background: var(--primary-purple-light);
+      color: var(--primary-purple);
+    }
+
+    .suggestion-tag {
+      font-size: 0.75rem;
+      background: rgba(108, 92, 231, 0.1);
+      color: var(--primary-purple);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       GRID SHOWCASE SECTION (MATCHING SCREENSHOT BOTTOM GRID)
+       ========================================================================== */
+    .showcase-section {
+      padding: 3rem 0 5rem;
+      margin-top: -1.5rem;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    /* Base Card Style */
+    .showcase-card {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      transition: var(--transition-smooth);
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .showcase-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .showcase-card:hover .showcase-card-img {
+      transform: scale(1.05);
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 12, 32, 0.82) 0%, rgba(14, 12, 32, 0.25) 45%, transparent 100%);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .card-title {
+      color: white;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.45rem;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    .card-arrow-btn {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 44px;
+      height: 44px;
+      background: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--dark-navy);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: var(--transition-fast);
+      z-index: 5;
+    }
+
+    .showcase-card:hover .card-arrow-btn {
+      background: var(--primary-purple);
+      color: white;
+      transform: scale(1.1) rotate(45deg);
+    }
+
+    /* Left Card 1 (Large) */
+    .card-left {
+      height: 490px;
+    }
+
+    /* Middle Column Container */
+    .middle-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Middle Top Card 2 */
+    .card-mid-top {
+      height: 315px;
+    }
+
+    /* Middle Bottom Widget Card 3 (Purple Customer Satisfaction) */
+    .card-mid-bottom {
+      height: 160px;
+      background: linear-gradient(135deg, #6C5CE7 0%, #805AD5 100%);
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      box-shadow: var(--shadow-purple);
+    }
+
+    .card-mid-bottom:hover {
+      transform: translateY(-4px);
+    }
+
+    .avatar-stack-group {
+      display: flex;
+      align-items: center;
+    }
+
+    .avatar-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid #7052FF;
+      object-fit: cover;
+      margin-left: -14px;
+      background: #E2E8F0;
+    }
+
+    .avatar-circle:first-child {
+      margin-left: 0;
+    }
+
+    .satisfaction-content {
+      text-align: right;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.8rem;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: 0.95;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    /* Right Card 4 */
+    .card-right {
+      height: 490px;
+    }
+
+    /* ==========================================================================
+       ADDITIONAL POPULAR SERVICES SECTION
+       ========================================================================== */
+    .section-popular {
+      padding: 4rem 0;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-purple);
+      background: var(--primary-purple-light);
+      padding: 0.35rem 1rem;
+      border-radius: var(--radius-full);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.3rem;
+      color: var(--dark-navy);
+      letter-spacing: -0.02em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .service-box {
+      background: white;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .service-box:hover {
+      border-color: var(--primary-purple);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .service-icon-wrap {
+      width: 54px;
+      height: 54px;
+      background: var(--bg-hero);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-purple);
+      font-size: 1.5rem;
+    }
+
+    .service-box-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--dark-navy);
+    }
+
+    .service-box-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .service-box-link {
+      margin-top: auto;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary-purple);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* ==========================================================================
+       HOW IT WORKS SECTION (MATCHING IMAGE 1 PERSIS)
+       ========================================================================== */
+    .section-steps {
+      padding: 5rem 0 6rem;
+      background: var(--bg-hero);
+      border-radius: 36px;
+      margin: 3rem 0;
+    }
+
+    .section-steps .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-steps .section-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #9333EA;
+      background: #F3E8FF;
+      padding: 0.35rem 1.1rem;
+      border-radius: var(--radius-full);
+    }
+
+    .section-steps .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.6rem;
+      color: var(--dark-navy);
+      letter-spacing: -0.025em;
+      margin-top: 0.85rem;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .step-card {
+      background: #FFFFFF;
+      padding: 3rem 2.25rem;
+      border-radius: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(226, 232, 240, 0.7);
+      transition: var(--transition-smooth);
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 32px -8px rgba(108, 92, 231, 0.12);
+      border-color: rgba(108, 92, 231, 0.3);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 3.8rem;
+      color: #E9D5FF;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--dark-navy);
+      margin-bottom: 0.85rem;
+    }
+
+    .step-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ==========================================================================
+       ZOOM SLIDER SHOWCASE SECTION (EXACT MATCH & SCROLL PARALLAX)
+       ========================================================================== */
+    .zoom-slider-section {
+      background: #0B0819;
+      color: white;
+      padding: 5rem 0 6rem;
+      border-radius: 32px;
+      margin: 3.5rem 0;
+      overflow: hidden;
+      position: relative;
+      perspective: 1200px;
+    }
+
+    .zoom-slider-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .zoom-slider-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 2.8rem;
+      color: white;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+
+    .zoom-slider-subtitle {
+      font-size: 0.95rem;
+      color: #94A3B8;
+    }
+
+    .zoom-slider-viewport {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      width: 100%;
+    }
+
+    .zoom-slider-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+      position: relative;
+    }
+
+    .zoom-slide {
+      flex: 0 0 220px;
+      height: 380px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0.35;
+      transform: scale(0.85);
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      will-change: transform;
+    }
+
+    .zoom-slide.active {
+      flex: 0 0 380px;
+      height: 480px;
+      opacity: 1;
+      transform: scale(1);
+      border: 2px solid #7052FF;
+      box-shadow: 0 0 40px rgba(112, 82, 255, 0.5), 0 20px 40px rgba(0, 0, 0, 0.7);
+      z-index: 10;
+    }
+
+    .zoom-slide-img-wrap {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .zoom-slide img {
+      width: 100%;
+      height: 125%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.1s ease-out;
+      transform: translateY(0) scale(1.1);
+      position: absolute;
+      top: -12.5%;
+      left: 0;
+      will-change: transform;
+    }
+
+    .zoom-slide.active:hover img {
+      transform: scale(1.15);
+    }
+
+    .zoom-slide-caption {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11, 8, 25, 0.95) 0%, rgba(11, 8, 25, 0.3) 50%, transparent 100%);
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      z-index: 2;
+    }
+
+    .zoom-slide.active .zoom-slide-caption {
+      opacity: 1;
+    }
+
+    .zoom-slide-caption h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.45rem;
+      color: white;
+      margin-bottom: 0.35rem;
+    }
+
+    .zoom-slide-caption p {
+      font-size: 0.9rem;
+      color: #CBD5E1;
+    }
+
+    .zoom-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 30;
+      transition: var(--transition-fast);
+    }
+
+    .zoom-nav-btn:hover {
+      background: #7052FF;
+      border-color: #7052FF;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 20px rgba(112, 82, 255, 0.6);
+    }
+
+    .zoom-prev-btn { left: 2.5rem; }
+    .zoom-next-btn { right: 2.5rem; }
+
+    .zoom-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-top: 2.5rem;
+    }
+
+    .zoom-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .zoom-dot.active {
+      width: 28px;
+      border-radius: 10px;
+      background: #7052FF;
+      box-shadow: 0 0 12px rgba(112, 82, 255, 0.8);
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      background: var(--dark-navy);
+      color: white;
+      padding: 4.5rem 0 2rem;
+      margin-top: 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr repeat(3, 1fr);
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .footer-desc {
+      color: #94A3B8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 320px;
+    }
+
+    .footer-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      color: white;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #94A3B8;
+      font-size: 0.9rem;
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #64748B;
+      font-size: 0.875rem;
+    }
+
+    /* ==========================================================================
+       MODAL POPUPS
+       ========================================================================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(14, 12, 32, 0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      max-width: 520px;
+      width: 100%;
+      padding: 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      animation: modalSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-hero);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-weight: bold;
+      transition: var(--transition-fast);
+    }
+
+    .modal-close:hover {
+      background: #E2E8F0;
+      color: var(--dark-navy);
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.75rem;
+      color: var(--dark-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--dark-navy);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--transition-fast);
+    }
+
+    .form-input:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.15);
+    }
+
+    .btn-submit-modal {
+      width: 100%;
+      background: var(--primary-purple);
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem;
+      border-radius: var(--radius-md);
+      margin-top: 0.75rem;
+      box-shadow: var(--shadow-purple);
+      transition: var(--transition-fast);
+    }
+
+    .btn-submit-modal:hover {
+      background: var(--primary-purple-hover);
+      transform: translateY(-2px);
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--dark-navy);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      display: none;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      z-index: 2000;
+      animation: toastIn 0.3s ease;
+    }
+
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       RESPONSIVE MEDIA QUERIES
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-body {
+        grid-template-columns: 1fr;
+        padding-top: 1.5rem;
+      }
+      .hero-illus-left, .hero-illus-right {
+        display: none;
+      }
+      .showcase-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .card-left {
+        grid-column: span 2;
+        height: 380px;
+      }
+      .card-right {
+        grid-column: span 2;
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-menu, .btn-join {
+        display: none;
+      }
+      .mobile-toggle {
+        display: block;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      .hero-search-bar {
+        flex-direction: column;
+        padding: 0.6rem;
+        gap: 0.6rem;
+      }
+      .search-location-select {
+        border-right: none;
+        border-bottom: 1.5px solid var(--border-subtle);
+        padding-right: 0;
+        padding-bottom: 0.6rem;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .search-input-field {
+        width: 100%;
+        padding: 0.5rem 0;
+      }
+      .btn-search {
+        width: 100%;
+        justify-content: center;
+      }
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+      .card-left, .card-right {
+        grid-column: span 1;
+        height: 340px;
+      }
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==========================================================================
+       HERO & NAVIGATION SECTION
+       ========================================================================== -->
+  <header class="hero-container">
+    <div class="navbar-wrapper" id="navbarWrapper">
+      <div class="container">
+        
+        <!-- Top Navbar -->
+        <nav class="navbar">
+          <a href="#" class="nav-brand">
+            <span class="nav-brand-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4C7.58172 4 4 7.58172 4 12V20H20V12C20 7.58172 16.4183 4 12 4Z" fill="white" stroke="none"/>
+                <circle cx="12" cy="13" r="3" fill="#6C5CE7"/>
+              </svg>
+            </span>
+            Mendx
+          </a>
+
+          <!-- Menu Links -->
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#services" class="nav-link">
+                Services
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item" onclick="openServiceModal('Handyman Services')">🔨 Handyman & Repair</a>
+                <a href="#" class="dropdown-item" onclick="openServiceModal('Electrical Services')">⚡ Electrical & Wiring</a>
+                <a href="#" class="dropdown-item" onclick="openServiceModal('Plumbing Services')">🚰 Plumbing & Leaks</a>
+                <a href="#" class="dropdown-item" onclick="openServiceModal('AC & Cooling')">❄️ AC Maintenance</a>
+                <a href="#" class="dropdown-item" onclick="openServiceModal('Carpentry')">🪚 Custom Carpentry</a>
+                <a href="#" class="dropdown-item" onclick="openServiceModal('Home Painting')">🎨 Home Painting</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">
+                About us
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="#about" class="dropdown-item">Our Story & Mission</a>
+                <a href="#how-it-works" class="dropdown-item">How Mendx Works</a>
+                <a href="#" class="dropdown-item" onclick="openToast('All Mendx experts pass 100% background checks!')">🛡️ Safety Guarantee</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#contact" class="nav-link">
+                Contact
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              </a>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item" onclick="openWaitlistModal('Help Desk')">📞 24/7 Customer Support</a>
+                <a href="#" class="dropdown-item" onclick="openWaitlistModal('Partner Application')">🤝 Join as a Handyman</a>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Right Action Button -->
+          <button class="btn-join" onclick="openWaitlistModal('Header CTA')">
+            Join Waitlist
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+
+          <button class="mobile-toggle" onclick="openWaitlistModal('Mobile Menu')">
+            ☰
+          </button>
+        </nav>
+      </div>
+    </div>
+
+      <!-- Hero Main Content -->
+      <div class="hero-body">
+        
+        <!-- Left Hero Vector Character Illustration -->
+        <div class="hero-illus-left">
+          <svg viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background shadow ring -->
+            <ellipse cx="110" cy="305" rx="80" ry="10" fill="#E2E8F0" opacity="0.6"/>
+            <!-- Female character standing with ID badge -->
+            <!-- Trousers -->
+            <path d="M75 190L65 295H90L105 200L120 295H145L135 190H75Z" fill="#10B981"/>
+            <path d="M65 295H90V302H65V295Z" fill="#0E0C20"/>
+            <path d="M120 295H145V302H120V295Z" fill="#0E0C20"/>
+            <!-- Jacket / Top -->
+            <path d="M60 115C60 100 80 95 110 95C140 95 160 100 160 115V190H60V115Z" fill="#047857"/>
+            <path d="M98 95L110 150L122 95H98Z" fill="#E0F2FE"/>
+            <!-- Face & Hair -->
+            <circle cx="110" cy="65" r="22" fill="#FDBA74"/>
+            <path d="M90 60C90 40 100 32 120 35C135 37 138 50 135 65C135 65 125 50 110 50C95 50 90 60 90 60Z" fill="#1E293B"/>
+            <path d="M86 52C82 65 85 85 88 100" stroke="#1E293B" stroke-width="8" stroke-linecap="round"/>
+            <!-- Arms holding the large purple card -->
+            <path d="M60 120L25 155L65 150" stroke="#047857" stroke-width="14" stroke-linecap="round"/>
+            <!-- Giant Horizontal Purple ID Badge / Service Card -->
+            <g transform="translate(60, 100) rotate(-6)">
+              <rect width="140" height="42" rx="8" fill="#6C5CE7"/>
+              <rect x="8" y="8" width="26" height="26" rx="4" fill="#A78BFA"/>
+              <!-- Avatar inside card -->
+              <circle cx="21" cy="18" r="6" fill="#FDBA74"/>
+              <path d="M15 28C15 24 18 23 21 23C24 23 27 24 27 28H15Z" fill="#1E293B"/>
+              <!-- Card details text lines -->
+              <rect x="42" y="10" width="80" height="6" rx="3" fill="#8B5CF6"/>
+              <rect x="42" y="20" width="60" height="5" rx="2.5" fill="#DDD6FE"/>
+              <rect x="42" y="28" width="40" height="4" rx="2" fill="#DDD6FE"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Center Hero Text & Search -->
+        <div class="hero-center">
+          <h1 class="hero-title">
+            <span class="title-line">Home Experts at</span>
+            <span class="title-line">
+              Your 
+              <span class="hero-house-icon">
+                <!-- Inline Purple House SVG Icon matching screenshot -->
+                <svg width="52" height="52" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- House Roof & Chimney -->
+                  <path d="M10 32L32 10L54 32" stroke="#6C5CE7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M44 22V14H50V28" stroke="#6C5CE7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- House Base Structure -->
+                  <path d="M16 28V52C16 54.2091 17.7909 56 20 56H44C46.2091 56 48 54.2091 48 52V28" stroke="#6C5CE7" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <!-- Heart outline inside House -->
+                  <path d="M32 46C32 46 22 40 22 33.5C22 30.5 24.5 28 27.5 28C29.5 28 31.2 29 32 30.5C32.8 29 34.5 28 36.5 28C39.5 28 42 30.5 42 33.5C42 40 32 46 32 46Z" stroke="#6C5CE7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span> 
+              Door
+            </span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Expert home services, delivered to your doorstep – get reliable handyman solutions with ease. Fast, professional, and tailored to your needs.
+          </p>
+
+          <!-- Search Widget Bar -->
+          <div class="hero-search-bar">
+            <!-- Location Selector -->
+            <div class="search-location-select" onclick="toggleLocationDropdown(event)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              <span id="selectedLocation">Location</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+              
+              <!-- Location Dropdown Options -->
+              <div class="location-dropdown" id="locationDropdown">
+                <div class="location-option" onclick="selectLocation('Tangerang', event)">📍 Tangerang</div>
+                <div class="location-option" onclick="selectLocation('Jakarta Selatan', event)">📍 Jakarta Selatan</div>
+                <div class="location-option" onclick="selectLocation('Jakarta Barat', event)">📍 Jakarta Barat</div>
+                <div class="location-option" onclick="selectLocation('BSD City', event)">📍 BSD City</div>
+                <div class="location-option" onclick="selectLocation('Bekasi', event)">📍 Bekasi</div>
+                <div class="location-option" onclick="selectLocation('Depok', event)">📍 Depok</div>
+              </div>
+            </div>
+
+            <!-- Search Input Field -->
+            <input type="text" class="search-input-field" id="searchInput" placeholder="What services you are looking for!" autocomplete="off" onkeyup="handleSearchInput(event)">
+
+            <!-- Search Button -->
+            <button class="btn-search" onclick="executeSearch()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              Search
+            </button>
+
+            <!-- Search Autocomplete Suggestions -->
+            <div class="search-suggestions" id="searchSuggestions">
+              <div class="suggestion-item" onclick="selectSuggestion('Electrical & AC Repairs')">
+                <span>⚡ Electrical & AC Wiring Repair</span>
+                <span class="suggestion-tag">Instant Match</span>
+              </div>
+              <div class="suggestion-item" onclick="selectSuggestion('Plumbing & Pipe Leak Fix')">
+                <span>🚰 Plumbing & Bathroom Leak Fix</span>
+                <span class="suggestion-tag">Popular</span>
+              </div>
+              <div class="suggestion-item" onclick="selectSuggestion('Furniture & Custom Carpentry')">
+                <span>🪚 Carpenter & Cabinet Assembly</span>
+                <span class="suggestion-tag">Top Rated</span>
+              </div>
+              <div class="suggestion-item" onclick="selectSuggestion('Interior Painting & Touchups')">
+                <span>🎨 Home & Wall Painting</span>
+                <span class="suggestion-tag">Available Now</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Hero Vector Character Illustration -->
+        <div class="hero-illus-right">
+          <svg viewBox="0 0 240 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Green brush stroke splash background -->
+            <path d="M140 40C180 30 230 60 220 110C210 160 170 150 190 200C205 235 150 250 140 220Z" fill="#10B981" opacity="0.85"/>
+            <!-- Shadow -->
+            <ellipse cx="130" cy="295" rx="75" ry="9" fill="#E2E8F0" opacity="0.6"/>
+            <!-- Seated Female character with Laptop -->
+            <!-- Legs in cross position -->
+            <path d="M100 220L80 270H150L175 220Z" fill="#1E293B"/>
+            <path d="M80 270H110V278H80V270Z" fill="#FDBA74"/>
+            <path d="M130 270H160V278H130V270Z" fill="#FDBA74"/>
+            <path d="M90 220C90 220 130 270 170 270" stroke="#10B981" stroke-width="24" stroke-linecap="round"/>
+            <!-- Torso / Top -->
+            <path d="M105 140C105 125 125 120 145 120C165 120 180 125 180 140V220H105V140Z" fill="#FFFFFF"/>
+            <!-- Face & Hair -->
+            <circle cx="145" cy="85" r="22" fill="#FDBA74"/>
+            <path d="M125 75C125 55 140 48 160 52C172 55 178 70 170 85C160 80 145 75 125 75Z" fill="#1E293B"/>
+            <path d="M125 75C120 90 122 110 130 130" stroke="#1E293B" stroke-width="12" stroke-linecap="round"/>
+            <!-- Dark Laptop on lap -->
+            <g transform="translate(100, 175) rotate(-8)">
+              <rect width="65" height="42" rx="4" fill="#0E0C20"/>
+              <rect x="4" y="4" width="57" height="34" rx="2" fill="#334155"/>
+              <rect x="10" y="10" width="30" height="4" rx="2" fill="#6C5CE7"/>
+            </g>
+          </svg>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SHOWCASE GRID SECTION (REPRODUCING SCREENSHOT CARDS EXACTLY)
+       ========================================================================== -->
+  <section class="showcase-section">
+    <div class="container">
+      <div class="showcase-grid">
+
+        <!-- Card 1 (Left Column - Craftsman Woodworker) -->
+        <div class="showcase-card card-left" onclick="openServiceModal('Skilled Craftsmen & Woodwork')">
+          <img src="assets/images/carpenter.png" alt="Skilled Experts, Reliable Service" class="showcase-card-img">
+          <div class="card-overlay">
+            <h3 class="card-title">
+              Skilled Experts,<br>Reliable Service
+            </h3>
+          </div>
+          <button class="card-arrow-btn" aria-label="View Details">↗</button>
+        </div>
+
+        <!-- Middle Column (Stacked Cards) -->
+        <div class="middle-column">
+          <!-- Card 2 (Top Middle - Technician with Homeowner) -->
+          <div class="showcase-card card-mid-top" onclick="openServiceModal('Fast 15-Minute Booking')">
+            <img src="assets/images/fast_booking.png" alt="Fast Booking, Instant Help" class="showcase-card-img">
+            <div class="card-overlay">
+              <h3 class="card-title">
+                Fast Booking,<br>Instant Help
+              </h3>
+            </div>
+            <button class="card-arrow-btn" aria-label="View Details">↗</button>
+          </div>
+
+          <!-- Card 3 (Bottom Middle - 98% Customer Satisfaction Widget) -->
+          <div class="showcase-card card-mid-bottom" onclick="openToast('Over 15,000+ satisfied home owners in Jabodetabek!')">
+            <div class="avatar-stack-group">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Customer Avatar" class="avatar-circle">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="Customer Avatar" class="avatar-circle">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Customer Avatar" class="avatar-circle">
+            </div>
+            <div class="satisfaction-content">
+              <div class="stat-number">98%</div>
+              <div class="stat-label">★ Customer satisfaction</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 (Right Column - Electrician Inspecting Lamp) -->
+        <div class="showcase-card card-right" onclick="openServiceModal('Safe, Easy & On-Demand Handyman')">
+          <img src="assets/images/lighting.png" alt="Safe, Easy, On-Demand" class="showcase-card-img">
+          <div class="card-overlay">
+            <h3 class="card-title">
+              Safe, Easy,<br>On-Demand
+            </h3>
+          </div>
+          <button class="card-arrow-btn" aria-label="View Details">↗</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       POPULAR SERVICES GRID SECTION
+       ========================================================================== -->
+  <section class="section-popular" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">Our Categories</span>
+        <h2 class="section-title">Comprehensive Home Solutions</h2>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-box" onclick="openServiceModal('Electrical Repairs')">
+          <div class="service-icon-wrap">⚡</div>
+          <h3 class="service-box-title">Electrical Repairs</h3>
+          <p class="service-box-desc">Short circuits, fixture installs, rewiring, and breaker box maintenance by certified electricians.</p>
+          <span class="service-box-link">Book Electrical Expert →</span>
+        </div>
+
+        <div class="service-box" onclick="openServiceModal('Plumbing & Leaks')">
+          <div class="service-icon-wrap">🚰</div>
+          <h3 class="service-box-title">Plumbing & Pipe Fixes</h3>
+          <p class="service-box-desc">Clogged drains, pipe leaks, water heater repair, and bathroom fixture replacement.</p>
+          <span class="service-box-link">Book Plumbing Expert →</span>
+        </div>
+
+        <div class="service-box" onclick="openServiceModal('AC & HVAC Servicing')">
+          <div class="service-icon-wrap">❄️</div>
+          <h3 class="service-box-title">AC & Cooling Service</h3>
+          <p class="service-box-desc">Deep cleaning, freon refilling, cooling diagnostics, and outdoor unit servicing.</p>
+          <span class="service-box-link">Book AC Expert →</span>
+        </div>
+
+        <div class="service-box" onclick="openServiceModal('Custom Carpentry')">
+          <div class="service-icon-wrap">🔨</div>
+          <h3 class="service-box-title">Carpentry & Assembly</h3>
+          <p class="service-box-desc">Door adjustments, custom shelves, furniture assembly, and wooden lock repairs.</p>
+          <span class="service-box-link">Book Carpenter →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       HOW IT WORKS SECTION (MATCHING IMAGE 1 PERSIS)
+       ========================================================================== -->
+  <section class="section-steps" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">SIMPLE PROCESS</span>
+        <h2 class="section-title">How Mendx Works for You</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Choose Location & Service</h3>
+          <p class="step-desc">Select what you need done around your house and pick your preferred arrival timeframe.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Matched in 15 Minutes</h3>
+          <p class="step-desc">We dispatch a top-rated, background-checked professional equipped with the right tools.</p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Hassle-Free & Guaranteed</h3>
+          <p class="step-desc">Pay securely after completion. Enjoy our 30-day Mendx Satisfaction Guarantee.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ZOOM SLIDER SHOWCASE SECTION (EXACT MATCH & SCROLL PARALLAX)
+       ========================================================================== -->
+  <section class="zoom-slider-section" id="zoomSliderSection">
+    <div class="container">
+      <div class="zoom-slider-header">
+        <h2 class="zoom-slider-title">Zoom Slider</h2>
+        <p class="zoom-slider-subtitle">Scroll or click arrows to explore our projects</p>
+      </div>
+
+      <div class="zoom-slider-viewport">
+        <!-- Left Prev Control -->
+        <button class="zoom-nav-btn zoom-prev-btn" onclick="prevZoomSlide()" aria-label="Previous Slide">‹</button>
+        
+        <!-- Track of Slides -->
+        <div class="zoom-slider-track" id="zoomSliderTrack">
+          
+          <div class="zoom-slide" onclick="goToZoomSlide(0)">
+            <div class="zoom-slide-img-wrap">
+              <img src="assets/images/carpenter.png" alt="Custom Carpentry & Furniture" class="parallax-img">
+            </div>
+            <div class="zoom-slide-caption">
+              <h4>Custom Woodwork</h4>
+              <p>Precision carpentry & shelving</p>
+            </div>
+          </div>
+
+          <div class="zoom-slide" onclick="goToZoomSlide(1)">
+            <div class="zoom-slide-img-wrap">
+              <img src="assets/images/fast_booking.png" alt="On-Demand Technician Dispatch" class="parallax-img">
+            </div>
+            <div class="zoom-slide-caption">
+              <h4>Fast Dispatch</h4>
+              <p>15-minute response time</p>
+            </div>
+          </div>
+
+          <!-- Active Center Card Matching Screenshot -->
+          <div class="zoom-slide active" onclick="goToZoomSlide(2)">
+            <div class="zoom-slide-img-wrap">
+              <img src="assets/images/lighting.png" alt="Smart Lighting & Electrical" class="parallax-img">
+            </div>
+            <div class="zoom-slide-caption">
+              <h4>Smart Lighting & Electrical</h4>
+              <p>Certified electrician installations</p>
+            </div>
+          </div>
+
+          <div class="zoom-slide" onclick="goToZoomSlide(3)">
+            <div class="zoom-slide-img-wrap">
+              <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80" alt="Plumbing & Maintenance" class="parallax-img">
+            </div>
+            <div class="zoom-slide-caption">
+              <h4>Plumbing & Leaks</h4>
+              <p>Pipe repair & fixture installation</p>
+            </div>
+          </div>
+
+          <div class="zoom-slide" onclick="goToZoomSlide(4)">
+            <div class="zoom-slide-img-wrap">
+              <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Circuit & Power Repair" class="parallax-img">
+            </div>
+            <div class="zoom-slide-caption">
+              <h4>Circuit & Breaker Box</h4>
+              <p>Safety checks & wiring repairs</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Next Control -->
+        <button class="zoom-nav-btn zoom-next-btn" onclick="nextZoomSlide()" aria-label="Next Slide">›</button>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="zoom-dots" id="zoomDots"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <span class="nav-brand-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            Mendx
+          </div>
+          <p class="footer-desc">
+            The modern platform connecting homeowners with trusted, background-checked local experts on demand.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="openServiceModal('Handyman')">Handyman</a></li>
+            <li><a href="#" onclick="openServiceModal('Electrical')">Electrical</a></li>
+            <li><a href="#" onclick="openServiceModal('Plumbing')">Plumbing</a></li>
+            <li><a href="#" onclick="openServiceModal('AC Service')">AC Servicing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#how-it-works">How it Works</a></li>
+            <li><a href="#" onclick="openWaitlistModal('Handyman Partner')">Join as Expert</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-links">
+            <li><a href="#">help@mendx.com</a></li>
+            <li><a href="#">+62 812-9900-MENDX</a></li>
+            <li><a href="#">Tangerang & Jabodetabek</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Mendx Inc. All rights reserved.</div>
+        <div style="display: flex; gap: 1.5rem;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JOIN WAITLIST / BOOKING MODAL
+       ========================================================================== -->
+  <div class="modal-overlay" id="waitlistModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeWaitlistModal()">✕</button>
+      <h3 class="modal-title" id="modalTitleText">Join the Mendx Waitlist</h3>
+      <p class="modal-desc" id="modalDescText">Get early access & 20% off your first home service booking!</p>
+
+      <form id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="e.g. Alex Johnson" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="alex@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">City / Location</label>
+          <input type="text" class="form-input" placeholder="e.g. Tangerang / Jakarta" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Needed</label>
+          <select class="form-input" id="modalServiceSelect">
+            <option value="Handyman & Repair">🔨 General Handyman & Repair</option>
+            <option value="Electrical Services">⚡ Electrical & Wiring</option>
+            <option value="Plumbing & Leak Fix">🚰 Plumbing & Pipe Fixes</option>
+            <option value="AC Maintenance">❄️ AC Maintenance</option>
+            <option value="Carpentry">🪚 Custom Carpentry</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-submit-modal">Get Early Access →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div class="toast-container" id="toastNotification">
+    <span id="toastMsg">Notification message</span>
+  </div>
+
+  <!-- ==========================================================================
+       INTERACTIVE JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    // Location Dropdown Toggle
+    function toggleLocationDropdown(e) {
+      e.stopPropagation();
+      const dropdown = document.getElementById('locationDropdown');
+      dropdown.classList.toggle('active');
+    }
+
+    function selectLocation(locName, e) {
+      e.stopPropagation();
+      document.getElementById('selectedLocation').textContent = locName;
+      document.getElementById('locationDropdown').classList.remove('active');
+      openToast('Location set to ' + locName);
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+      const dropdown = document.getElementById('locationDropdown');
+      const searchSuggestions = document.getElementById('searchSuggestions');
+      if (dropdown) dropdown.classList.remove('active');
+      if (searchSuggestions) searchSuggestions.classList.remove('active');
+    });
+
+    // Search input live suggestions
+    function handleSearchInput(e) {
+      const val = e.target.value.trim();
+      const suggestions = document.getElementById('searchSuggestions');
+      if (val.length > 0) {
+        suggestions.classList.add('active');
+      } else {
+        suggestions.classList.remove('active');
+      }
+    }
+
+    function selectSuggestion(text) {
+      document.getElementById('searchInput').value = text;
+      document.getElementById('searchSuggestions').classList.remove('active');
+      executeSearch();
+    }
+
+    function executeSearch() {
+      const query = document.getElementById('searchInput').value.trim();
+      const loc = document.getElementById('selectedLocation').textContent;
+      if (!query) {
+        openToast('Please type a service (e.g. Plumbing, AC Repair)!');
+        return;
+      }
+      openServiceModal(query + ' in ' + (loc === 'Location' ? 'your city' : loc));
+    }
+
+    // Modal Control Functions
+    function openWaitlistModal(sourceTag) {
+      const modal = document.getElementById('waitlistModal');
+      document.getElementById('modalTitleText').textContent = "Join the Mendx Waitlist";
+      document.getElementById('modalDescText').textContent = "Be first in line for fast, vetted handyman services near you.";
+      modal.classList.add('active');
+    }
+
+    function openServiceModal(serviceName) {
+      const modal = document.getElementById('waitlistModal');
+      document.getElementById('modalTitleText').textContent = "Book " + serviceName;
+      document.getElementById('modalDescText').textContent = "Reserve your 15-minute dispatch slot with top rated Mendx experts.";
+      
+      const select = document.getElementById('modalServiceSelect');
+      if (select) {
+        let matched = false;
+        for (let i = 0; i < select.options.length; i++) {
+          if (serviceName.toLowerCase().includes(select.options[i].value.toLowerCase())) {
+            select.selectedIndex = i;
+            matched = true;
+            break;
+          }
+        }
+      }
+      modal.classList.add('active');
+    }
+
+    function closeWaitlistModal() {
+      document.getElementById('waitlistModal').classList.remove('active');
+    }
+
+    function handleWaitlistSubmit(e) {
+      e.preventDefault();
+      closeWaitlistModal();
+      openToast('🎉 You\'re on the list! We will notify you shortly.');
+    }
+
+    // Toast Notification helper
+    function openToast(message) {
+      const toast = document.getElementById('toastNotification');
+      document.getElementById('toastMsg').textContent = message;
+      toast.style.display = 'flex';
+      
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3500);
+    }
+
+    // Floating Sticky Navbar Scroll Trigger Across All Sections
+    window.addEventListener('scroll', function() {
+      const navWrapper = document.getElementById('navbarWrapper');
+      if (navWrapper) {
+        if (window.scrollY > 150) {
+          navWrapper.classList.add('is-scrolled');
+        } else {
+          navWrapper.classList.remove('is-scrolled');
+        }
+      }
+    });
+
+    // Zoom Slider Vanilla JS Controller (3D Depth, Switcher & Parallax Scroll)
+    let currentZoomIndex = 2; // Default active 3rd card matching screenshot
+
+    function initZoomSlider() {
+      const zoomSlides = document.querySelectorAll('.zoom-slide');
+      const dotsContainer = document.getElementById('zoomDots');
+      if (!dotsContainer || zoomSlides.length === 0) return;
+
+      dotsContainer.innerHTML = '';
+      zoomSlides.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = 'zoom-dot' + (idx === currentZoomIndex ? ' active' : '');
+        dot.onclick = () => goToZoomSlide(idx);
+        dotsContainer.appendChild(dot);
+      });
+
+      updateZoomSlideState();
+      handleZoomSliderParallax();
+    }
+
+    function updateZoomSlideState() {
+      const zoomSlides = document.querySelectorAll('.zoom-slide');
+      const dots = document.querySelectorAll('.zoom-dot');
+      if (zoomSlides.length === 0) return;
+
+      zoomSlides.forEach((slide, idx) => {
+        slide.classList.remove('active');
+        if (dots[idx]) dots[idx].classList.remove('active');
+
+        if (idx === currentZoomIndex) {
+          slide.classList.add('active');
+          if (dots[idx]) dots[idx].classList.add('active');
+        }
+      });
+    }
+
+    function nextZoomSlide() {
+      const zoomSlides = document.querySelectorAll('.zoom-slide');
+      if (zoomSlides.length === 0) return;
+      currentZoomIndex = (currentZoomIndex + 1) % zoomSlides.length;
+      updateZoomSlideState();
+    }
+
+    function prevZoomSlide() {
+      const zoomSlides = document.querySelectorAll('.zoom-slide');
+      if (zoomSlides.length === 0) return;
+      currentZoomIndex = (currentZoomIndex - 1 + zoomSlides.length) % zoomSlides.length;
+      updateZoomSlideState();
+    }
+
+    function goToZoomSlide(index) {
+      currentZoomIndex = index;
+      updateZoomSlideState();
+    }
+
+    // Parallax Scroll Effect on Zoom Slider Section
+    function handleZoomSliderParallax() {
+      const section = document.getElementById('zoomSliderSection');
+      if (!section) return;
+
+      const rect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const progress = (rect.top + rect.height / 2 - windowHeight / 2) / (windowHeight / 2);
+        
+        // Smooth parallax offset on inner images as page scrolls
+        const images = section.querySelectorAll('.parallax-img');
+        images.forEach((img, i) => {
+          const depthSpeed = (i % 2 === 0) ? 24 : -24;
+          const translateY = progress * depthSpeed;
+          img.style.transform = `translateY(${translateY}px) scale(1.15)`;
+        });
+      }
+    }
+
+    window.addEventListener('scroll', handleZoomSliderParallax);
+    document.addEventListener('DOMContentLoaded', initZoomSlider);
+  </script>
+</body>
+
+</html>
