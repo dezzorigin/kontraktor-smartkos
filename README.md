@@ -1,26 +1,35 @@
 # Kontraktor Smartkos
 
-## Live Demo
-
-🌐 https://7c0e93fa.kontraktor-smartkos.pages.dev
-
-Kontraktor Smartkos — project by Nabil Aulia Dika (dezzorigin).
+Kontraktor Smartkos — project oleh Nabil Aulia Dika (dezzorigin).
 
 ## Status Proyek
 
 **Dalam pengembangan** _(README ada)_
 
-## Tech Stack
+## 🌐 Live Demo
+
+**https://7c0e93fa.kontraktor-smartkos.pages.dev**
+
+## 📋 Tech Stack
 
 HTML/CSS/JavaScript
 
-## Struktur Proyek
+## 🏗️ Arsitektur
+
+```mermaid
+flowchart LR
+  U[Pengguna] --> B[Browser]
+  B --> S[Static Site]
+```
+
+## 📁 Struktur Proyek
 
 ```
-.gitignore
-Artemis_Proposal Business Plan - SmartKos.docx
-README.md
 assets/
+Artemis_Proposal Business Plan - SmartKos.docx
+LICENSE
+PRD.md
+README.md
 business-plan-smartkos-unnamed.docx
 business-plan_.docx
 business_plan_smartkos.docx
@@ -39,13 +48,21 @@ signature.png
 whatsapp-image-2026-09-20-at-20.11.46.jpeg
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
-Buka file `index.html` di browser, atau serve folder dengan static server.
+```bash
+# Install dependencies
+npm install
 
-## Lisensi
+# Jalankan development server
+npm run dev
+```
 
-MIT — lihat file [LICENSE](./LICENSE).
+> Untuk project HTML/Python/Go, lihat instruksi di atas atau file konfigurasi.
+
+## 📄 Lisensi
+
+MIT — lihat [LICENSE](./LICENSE).
 
 ---
-_Dibuat dan dikelola oleh Nabil Aulia Dika. Kontribusi dan issue welcome._
+_Dikembangkan oleh **dezzorigin** (Nabil Aulia Dika)._
