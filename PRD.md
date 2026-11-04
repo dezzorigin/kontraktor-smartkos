@@ -5,7 +5,6 @@
 | Field | Nilai |
 |---|---|
 | Nama Proyek | Kontraktor Smartkos |
-| Repo | dezzorigin/kontraktor-smartkos |
 | Tech Stack | HTML/CSS/JavaScript |
 | Status | Dalam pengembangan |
 | Penanggung Jawab | Nabil Aulia Dika |
@@ -14,7 +13,7 @@
 
 ## 2. Latar Belakang
 
-Proyek ini dikembangkan sebagai bagian dari portofolio dan kebutuhan operasional. Dokumen ini mengikuti standar PRD nasional untuk memastikan ruang lingkup, fitur, dan kriteria keberhasilan terdefinisi dengan jelas.
+Proyek ini dikembangkan sebagai bagian dari portofolio dan kebutuhan operasional. Dokumen ini mengikuti standar PRD nasional agar ruang lingkup, fitur, dan kriteria keberhasilan terdefinisi dengan jelas.
 
 ## 3. Masalah yang Diselesaikan
 
@@ -40,10 +39,11 @@ Pengguna membutuhkan solusi digital yang efisien, terukur, dan mudah dipelihara 
 ## 6. Fitur & Persyaratan Fungsional
 
 Struktur proyek (file/direktori utama):
-- .gitignore
-- Artemis_Proposal Business Plan - SmartKos.docx
-- README.md
 - assets/
+- Artemis_Proposal Business Plan - SmartKos.docx
+- LICENSE
+- PRD.md
+- README.md
 - business-plan-smartkos-unnamed.docx
 - business-plan_.docx
 - business_plan_smartkos.docx
@@ -59,7 +59,6 @@ Struktur proyek (file/direktori utama):
 - naskah-presentasi-peta-konsep-problem-solving.pdf
 - prd.md
 - signature.png
-- whatsapp-image-2026-09-20-at-20.11.46.jpeg
 
 ## 7. Persyaratan Non-Fungsional
 
